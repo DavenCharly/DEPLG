@@ -13,7 +13,7 @@ app.use(express.static("public")); // Servir les fichiers HTML/CSS/JS du client
 
 // Serveur
 const server = app.listen(PORT, () => {
-    console.log(`🚀 Serveur en ligne sur http://localhost:${PORT}`);
+    console.log(`🚀 Serveur en ligne sur https://lg-du-dep.onrender.com`);
 });
 
 // Serveur WebSocket
