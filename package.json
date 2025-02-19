@@ -1,26 +1,14 @@
 {
-  "name": "web-server",
+  "name": "loup-garou-local",
   "version": "1.0.0",
-  "description": "��#\u0000 \u0000D\u0000E\u0000P\u0000L\u0000G\u0000\r\u0000 \u0000",
-  "main": "index.js",
+  "type": "module", 
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/DavenCharly/DEPLG.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/DavenCharly/DEPLG/issues"
-  },
-  "homepage": "https://github.com/DavenCharly/DEPLG#readme",
   "dependencies": {
+    "express": "^4.18.2",
+    "ws": "^8.13.0",
     "cors": "^2.8.5",
-    "dotenv": "^16.4.7",
-    "express": "^4.21.2",
-    "ws": "^8.18.0"
+    "dotenv": "^16.3.1"
   }
 }
