@@ -14,6 +14,7 @@
     <p id="status">Connexion au serveur...</p>
     <script>
         const status = document.getElementById("status");
+        const protocol = window.location.protocol === "https:" ? "wss://" : "ws://";
         const ws = new WebSocket("ws://" + window.location.host);
 
         ws.onopen = () => status.textContent = "🟢 Connecté au serveur";
