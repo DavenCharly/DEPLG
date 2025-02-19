@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loup-Garou Local</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        #status { margin-top: 20px; font-size: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Bienvenue sur Loup-Garou Local</h1>
+    <p id="status">Connexion au serveur...</p>
+    <script>
+        const status = document.getElementById("status");
+        const ws = new WebSocket((window.location.protocol === "https:" ? "wss://" : "ws://") + window.location.host);
+
+        ws.onopen = () => status.textContent = "🟢 Connecté au serveur";
+        ws.onclose = () => status.textContent = "🔴 Déconnecté";
+        ws.onmessage = (event) => console.log("Message reçu :", event.data);
+    </script>
+</body>
+</html>
