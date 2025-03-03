@@ -1,7 +1,11 @@
 {
   "name": "loup-garou-local",
   "version": "1.0.0",
+<<<<<<< HEAD
   "type": "module",
+=======
+  "type": "module", 
+>>>>>>> 803e7fdb15c6052e7f55c30fe0642e7fdd2d5b25
   "scripts": {
     "start": "node server.js"
   },
