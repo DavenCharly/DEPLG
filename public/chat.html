@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        #status { margin-top: 20px; font-size: 20px; }
+        #chat-container { margin-top: 20px; }
+        input { padding: 10px; width: 300px; }
+        button { padding: 10px; margin-left: 10px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>Chat - <span id="usernameDisplay"></span></h1>
+    <p id="status">Connexion au serveur...</p>
+
+    <div id="chat-container">
+        <input type="text" id="messageInput" placeholder="Tapez votre message...">
+        <button id="sendButton">Envoyer</button>
+    </div>
+
+    <ul id="messages"></ul>
+
+    <script>
+        window.addEventListener("beforeunload", () => {
+            localStorage.removeItem("username");  // Supprime le pseudo si la page se ferme
+        });
+    </script>    
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -3,22 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loup-Garou Local</title>
+    <title>Choisir un pseudo</title>
     <style>
         body { font-family: Arial, sans-serif; text-align: center; }
-        #status { margin-top: 20px; font-size: 20px; }
+        input, button { padding: 10px; font-size: 16px; }
+        #error { color: red; font-weight: bold; }
     </style>
 </head>
 <body>
     <h1>Bienvenue sur Loup-Garou Local</h1>
-    <p id="status">Connexion au serveur...</p>
-    <script>
-        const status = document.getElementById("status");
-        const ws = new WebSocket((window.location.protocol === "https:" ? "wss://" : "ws://") + window.location.host);
+    <p>Entrez votre pseudonyme pour rejoindre le chat :</p>
+    <input type="text" id="username" placeholder="Votre pseudo">
+    <button id="joinButton">Rejoindre</button>
+    <p id="error"></p>
 
-        ws.onopen = () => status.textContent = "🟢 Connecté au serveur";
-        ws.onclose = () => status.textContent = "🔴 Déconnecté";
-        ws.onmessage = (event) => console.log("Message reçu :", event.data);
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const storedUsername = localStorage.getItem("username");
+            if (storedUsername) {
+                document.getElementById("error").textContent = `⚠️ Vous êtes déjà connecté sous le pseudo: ${storedUsername}`;
+            }
+
+            document.getElementById("joinButton").addEventListener("click", () => {
+                const username = document.getElementById("username").value.trim();
+                if (!username) return alert("Veuillez entrer un pseudonyme !");
+                if (storedUsername) return alert(`⚠️ Vous êtes déjà connecté sous le pseudo: ${storedUsername}`);
+
+                localStorage.setItem("username", username);
+                window.location.href = `chat.html?username=${encodeURIComponent(username)}`;
+            });
+        });
     </script>
 </body>
 </html>
